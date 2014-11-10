@@ -46,6 +46,12 @@ class Chef
         :long => "--template-file TEMPLATE_FILE",
         :description => "Path to the file that contains the template",
         :proc => Proc.new { |f| Chef::Config[:knife][:template_file] = f }
+
+      option :erb_template,
+          :short  => '-e ERB_TEMPLATE',
+          :long   => '--erb-template ERB_TEMPLATE',
+          :description  => "Path to an ERB template file that generates a CloudFormation template",
+          :proc   => Proc.new { |e| Chef::Config[:knife][:erb_template] = e}
         
       option :notification_arns,
         :short => "-n NOTIFICATION_ARN1,NOTIFICATION_ARN2,NOTIFICATION_ARN3..",
